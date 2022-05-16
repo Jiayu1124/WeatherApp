@@ -1,59 +1,64 @@
-Weather App
-Prepare by LEE JIA YU
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-Introduction
-A small client-side application that displays weather data for several cities.
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
+## About Laravel
 
-Development Materials 
-1. Laravel
-2. VueJs
-3. UI template
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Database structure
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-1. Tiles table 
-- Collect the input from user (city, interval)
-- Store data from weather API (temperature, situation, etc)
+## Learning Laravel
 
-2. Forecasts table
-- Store 5 latest forecast data from weather API (temperature, situation, etc) for each city
-- Soft delete previous data when the tile are updated with new forecast
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-3. Tasks table
-- Cron job for update tile status based on refresh interval set by user
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
+## Laravel Sponsors
 
-Application Description
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-Create Tile
-1. User are require to insert city name and select a time interval for the weather information to be updated.
-2. After user submit the information and refresh the page, the weather tile section will appear a tile with city waether details and forecast details
-3. The maximum display of tile will be 8 per page. 
+### Premium Partners
 
-Delete Tile
-1. User is able to delete the weather tile through the delete button on each tile
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[OP.GG](https://op.gg)**
+- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- **[Lendio](https://lendio.com)**
 
+## Contributing
 
-Application Setup Design
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-1. 3 models is setup for the application (tile, forecast, task)
-2. Tile have the one-to-many relationship with forecast
-3. All the function and display is display on the same page (HomeController.index)
-4. Vuejs axios to submit form for creating tile.
-5. During creating of a tile, the existance of the city will be checked through the weather API
-6. If the city already previously input by user, it will update the city tile instead of created another duplicate city
-7. When create/update of city, the weather tile will retrieve 5 of the latest forecast through forecast API and soft delete the previous data, this is to maintain the amount of display for the forecast
-8. The weather tile will be display according to descending order of creation time.
-9. A cron job (weather update) is created and run according to the refresh interval set by user for each tile.
-10. To active the cron job in localhost the command is (php artisan weather:update)
-11. The information of weather and forecast will be updated for the tile that reached the refresh interval.
+## Code of Conduct
 
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-Interface design
+## Security Vulnerabilities
 
-1. To allow the tile have equal width and fix max width with the screen size, the tiles section is flex box and flex-wrapped.
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+## License
 
- 
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
